@@ -2,10 +2,6 @@ from typing import Optional, Tuple
 from .config import START_MARKERS, END_MARKERS
 
 def split_gutenberg(text: str) -> Optional[Tuple[str, str, str]]:
-    """
-    Devuelve (header, body, footer) o None si no encuentra marcadores.
-    """
-    # Buscar primer START y primer END (aceptando variantes)
     start_idx = -1
     for m in START_MARKERS:
         i = text.find(m)

@@ -9,12 +9,6 @@ class DownloadError(Exception):
     pass
 
 def download_book_to_datalake(book_id: int) -> dict:
-    """
-    Descarga un libro de Gutenberg, separa header/body y guarda en:
-      datalake/YYYYMMDD/HH/<BOOK_ID>_header.txt
-      datalake/YYYYMMDD/HH/<BOOK_ID>_body.txt
-    Devuelve { 'ok': bool, 'book_id': int, 'header_path': str, 'body_path': str, 'reason': str? }
-    """
     ymd, hh = now_parts_utc()
     out_dir = DATALAKE / ymd / hh
     out_dir.mkdir(parents=True, exist_ok=True)
