@@ -1,0 +1,63 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Compiled / optimized / temporary files
+*.log
+*.lock
+*.pot
+*.mo
+*.swp
+*.tmp
+*.temp
+*.orig
+
+# Virtual environments
+venv/
+.env/
+.env.bak/
+.venv/
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Caches
+*.pytest_cache/
+.cache/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.spec
+
+# Output files (crawler / indexer)
+*.jsonl
+output/
+corpus/
+data/
+downloads/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.code-workspace
+
+# Local configs
+*.local
+*.envrc
+.envrc
+
+# For dependency lock files (optional, remove if needed)
+poetry.lock
+Pipfile.lock
+
+# If you use Docker (optional)
+docker-compose.override.yml
