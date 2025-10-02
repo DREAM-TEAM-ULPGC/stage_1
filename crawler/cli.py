@@ -17,13 +17,12 @@ def main():
     ok, ko = 0, 0
 
     if args.continuous:
-        book_id = 1 
+        book_id = 1
         consecutive_fails = 0
-        max_consecutive_fails = 10
+        max_fails = 10
         batch_size = 10
         interval_seconds = 4 * 60
         while True:
-            batch_fail_check = False
             for _ in range(batch_size):
                 res = download_book_to_datalake(book_id)
                 if res.get("ok"):
@@ -33,21 +32,14 @@ def main():
                 else:
                     ko += 1
                     print(f"[FAIL] {book_id} -> {res.get('reason')}")
-                    if "http_error" in res.get("reason", "") or "markers_not_found" in res.get("reason", ""):
-                        consecutive_fails += 1
-                    else:
-                        consecutive_fails = 0
-                if consecutive_fails >= max_consecutive_fails:
-                    batch_fail_check = True
-                    break
+                    consecutive_fails += 1
                 book_id += 1
-            if batch_fail_check:
-                print(f"Stopping continuous run after {consecutive_fails} consecutive failures.")
-                break
+                if consecutive_fails >= max_fails:
+                    print(f"Stopping continuous run after {consecutive_fails} consecutive failures.")
+                    print(f"\nResumen: OK={ok}  FAIL={ko}")
+                    return
             print(f"Batch completed. Sleeping for {interval_seconds} seconds...")
             time.sleep(interval_seconds)
-        print(f"\nResumen: OK={ok}  FAIL={ko}")
-        return
     
     ids = []
     if args.id is not None:
