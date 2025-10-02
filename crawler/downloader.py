@@ -15,7 +15,6 @@ def download_book_to_datalake(book_id: int) -> dict:
 
     url = GUT_URL.format(id=book_id)
 
-    # Descargar con reintentos
     text = None
     for attempt in range(MAX_RETRIES):
         try:

@@ -1,41 +1,56 @@
-# Stage 1 - Data Layer: Search Engine Project
+# Gutenberg Book Crawler
 
-**Curso:** Big Data - Grado en Ciencia e Ingeniería de Datos  
-**Universidad:** Universidad de Las Palmas de Gran Canaria  
-**Grupo:** `<Nombre del Grupo>`  
-**Repositorio:** `https://github.com/DREAM-TEAM-ULPGC/stage_1`
+This project provides a command-line tool to download books from Project Gutenberg and store them in a local datalake. The crawler supports multiple modes for downloading books based on their IDs.
 
----
+## Setup
 
-## 1. Introducción
+To set up the project, you need to create and activate a Python virtual environment, then install the required dependencies.
 
-En esta primera etapa, el objetivo es construir la **capa de datos (Data Layer)** del motor de búsqueda. Esta capa incluye:
+### 1. Create a Virtual Environment
 
-- **Datalake:** Almacena los libros descargados de Project Gutenberg en formato sin procesar (texto plano) y JSON estructurado.  
-- **Datamarts:** Contiene datos estructurados (metadata de libros e índices invertidos).  
-- **Control Layer:** Coordina descargas e indexaciones evitando duplicados.
+First, create a virtual environment in the project directory:
 
----
+```bash
+python -m venv venv
+```
 
-## 2. Estructura del Proyecto
+### 2. Activate the Virtual Environment
 
-```text
-stage_1/
-├── crawler_books.py       # Crawler de libros con JSON bonito
-├── writer.py              # Clase para escribir JSON estructurado
-├── utils.py               # Funciones de normalización y dominios
-├── link_extractor.py      # Extrae enlaces de HTML (opcional)
-├── robots_cache.py        # Manejo de robots.txt
-├── polite_limiter.py      # Respeta crawl-delay por host
-├── fetcher.py             # Fetcher de páginas HTML/texto
-├── control_layer.py       # Coordinación de descargas e indexación
-├── datalake/              # Carpeta donde se guardan libros descargados
-│   └── YYYYMMDD/
-│       └── HH/
-│           ├── <BOOK_ID>.body.txt
-│           └── <BOOK_ID>.header.txt
-├── control/               # Archivos de control de estado
-│   ├── downloaded_books.txt
-│   └── indexed_books.txt
-├── README.md
-└── requirements.txt       # Librerías necesarias
+Activate the virtual environment using the appropriate command for your operating system:
+
+- **Windows**:
+  ```bash
+  venv\Scripts\activate
+  ```
+
+- **MacOS/Linux**:
+  ```bash
+  source venv/bin/activate
+  ```
+
+### 3. Install Dependencies
+
+Once the virtual environment is activated, install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Running the Crawler
+
+To run the crawler, execute the following command from the project's root directory:
+
+```bash
+python -m crawler.cli
+```
+
+The crawler supports the following mutually exclusive options:
+
+- `--id <ID>`: Download a single book by its Gutenberg ID (e.g., `python -m crawler.cli --id 1342`).
+- `--range <START> <END>`: Download a range of books inclusively from `START` to `END` (e.g., `python -m crawler.cli --range 100 110`).
+- `--list <FILE>`: Download books listed in a file, with one ID per line (e.g., `python -m crawler.cli --list ids.txt`).
+- `--continuous`: Download books continuously in batches of 10, starting from ID 1, with a 4-minute pause between batches. Stops after 10 consecutive failures (e.g., `python -m crawler.cli --continuous`).
+
+## Output
+
+The crawler saves downloaded books to a datalake directory, with each book split into header and body text files. It prints the status of each download (`[OK]` or `[FAIL]`) and a summary of successful (`OK`) and failed (`FAIL`) downloads at the end.
