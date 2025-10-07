@@ -63,5 +63,9 @@ Pipfile.lock
 docker-compose.override.yml
 
 .db
+/datamart
 /metadata
 /datalake
+/indexer
+/index*
+/crawler/*.json
