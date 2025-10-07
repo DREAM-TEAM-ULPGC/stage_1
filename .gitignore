@@ -61,3 +61,7 @@ Pipfile.lock
 
 # If you use Docker (optional)
 docker-compose.override.yml
+
+.db
+/metadata
+/datalake

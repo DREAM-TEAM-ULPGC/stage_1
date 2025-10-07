@@ -12,10 +12,6 @@ from pathlib import Path
 
 
 class Control:
-    """
-    Coordina las tareas del pipeline: descarga, indexación y procesamiento de metadatos en lotes de 10 libros.
-    """
-
     def __init__(
         self,
         datalake="datalake",
@@ -51,13 +47,13 @@ class Control:
             json.dump({"last_id": last_id}, f, indent=2)
 
     def run(self):
-        print("[Inicial] Inicializando datamart ...")
+        print("[Initializing datamart...]")
         init_datamart(self.db)
 
         while True:
-            print("\n[Cycle] Iniciando nuevo ciclo de procesamiento ...\n")
+            print("\n[Cycle] Starting new processing cycle...\n")
 
-            print("[1/3] Ejecutando crawler (lote de 10 libros) ...")
+            print("[1/3] Running crawler (batch of 10 books)...")
             last_id = self.load_crawler_progress()
             start_id = last_id + 1
             end_id = start_id + self.batch_size - 1
@@ -65,41 +61,41 @@ class Control:
             crawler_main()
             self.save_crawler_progress(end_id)
 
-            print("[2/3] Ejecutando indexer ...")
+            print("[2/3] Running indexer...")
             build_inverted_index(
                 datalake_path=self.datalake,
                 output_path=self.index_output,
                 progress_path=self.progress_indexer
             )
 
-            print("[3/3] Ejecutando metadata ...")
+            print("[3/3] Running metadata parser...")
             metadata_parser.build_metadata_catalog(
                 datalake_path=self.datalake,
                 output_path=self.catalog,
                 progress_path=self.progress_parser,
             )
             affected = store_catalog(self.catalog, self.db)
-            print(f"Almacenados ~{affected} rows en 'books'.")
+            print(f"Stored ~{affected} rows in 'books'.")
 
-            print(f"Ciclo completado. Durmiendo {self.sleep_seconds // 60} minutos ...\n")
+            print(f"Cycle completed. Sleeping {self.sleep_seconds // 60} minutes...\n")
             time.sleep(self.sleep_seconds)
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Pipeline para descargar, indexar y procesar metadatos en lotes de 10 libros."
+        description="Data pipeline that downloads, indexes, and processes metadata in batches of 10 books."
     )
-    parser.add_argument("--datalake", default="datalake", help="Ruta al directorio raíz del datalake")
-    parser.add_argument("--catalog", default="metadata/catalog.json", help="Ruta al catálogo JSON de salida")
+    parser.add_argument("--datalake", default="datalake", help="Datalake root directory")
+    parser.add_argument("--catalog", default="metadata/catalog.json", help="Path to output JSON catalog")
     parser.add_argument(
-        "--progress-parser", default="metadata/progress_parser.json", help="Ruta al JSON de progreso del parser"
+        "--progress-parser", default="metadata/progress_parser.json", help="Path to parser progress JSON"
     )
-    parser.add_argument("--db", default="datamart/datamart.db", help="Ruta al archivo de base de datos SQLite")
-    parser.add_argument("--index-output", default="index/inverted_index.json", help="Ruta al índice invertido JSON")
-    parser.add_argument("--progress-indexer", default="indexer/progress.json", help="Ruta al JSON de progreso del indexer")
-    parser.add_argument("--progress-crawler", default="crawler/progress.json", help="Ruta al JSON de progreso del crawler")
-    parser.add_argument("--batch-size", type=int, default=10, help="Tamaño del lote para el crawler")
-    parser.add_argument("--sleep-seconds", type=int, default=120, help="Segundos de espera entre ciclos")
+    parser.add_argument("--db", default="datamart/datamart.db", help="Path to SQLite database file")
+    parser.add_argument("--index-output", default="index/inverted_index.json", help="Path to inverted index JSON")
+    parser.add_argument("--progress-indexer", default="indexer/progress.json", help="Path to indexer progress JSON")
+    parser.add_argument("--progress-crawler", default="crawler/progress.json", help="Path to crawler progress JSON")
+    parser.add_argument("--batch-size", type=int, default=10, help="Batch size for crawler")
+    parser.add_argument("--sleep-seconds", type=int, default=120, help="Sleep seconds between cycles")
 
     args = parser.parse_args()
 

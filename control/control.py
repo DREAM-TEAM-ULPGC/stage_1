@@ -2,11 +2,6 @@ from pathlib import Path
 import random
 
 class Control:
-    """
-    Coordina las tareas del pipeline: descarga e indexación.
-    Guarda el estado en ficheros de control.
-    """
-
     def __init__(self, control_dir="control", total_books=70000):
         self.dir = Path(control_dir)
         self.dir.mkdir(parents=True, exist_ok=True)
@@ -28,14 +23,12 @@ class Control:
         indexed = self._read_ids(self.indexed_file)
         pending = downloaded - indexed
 
-        # Si hay libros descargados sin indexar
         if pending:
             book_id = pending.pop()
             indexer(book_id)
             self._append_id(self.indexed_file, book_id)
             return f"Indexed book {book_id}"
 
-        # Si no, descarga uno nuevo
         for _ in range(10):
             book_id = str(random.randint(1, self.total_books))
             if book_id not in downloaded:
