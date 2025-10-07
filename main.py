@@ -1,7 +1,7 @@
 import argparse
 import inverted_index.metadata_parser as metadata_parser
 from inverted_index.metadata_store import run as store_catalog
-from inverted_index.datamart_initializer import init_datamart
+from inverted_index.datamart_initializer_sqlite import init_datamart
 
 
 def main():
