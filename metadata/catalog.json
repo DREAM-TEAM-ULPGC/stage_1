@@ -1,0 +1,464 @@
+{
+  "1300": {
+    "title": "Riders of the Purple Sage",
+    "author": "Zane Grey",
+    "release_date": "May 1, 1998",
+    "language": "English"
+  },
+  "1301": {
+    "title": "The French Revolution: A History",
+    "author": "Thomas Carlyle",
+    "release_date": "February 15, 2006",
+    "language": "English"
+  },
+  "1302": {
+    "title": "The Enemies of Books",
+    "author": "William Blades",
+    "release_date": "May 1, 1998",
+    "language": "English"
+  },
+  "1303": {
+    "title": "The Scapegoat",
+    "author": "Sir Hall Caine",
+    "release_date": "February 15, 2006",
+    "language": "English"
+  },
+  "1304": {
+    "title": "Bulchevy's Book of English Verse",
+    "author": null,
+    "release_date": "May 1, 1998",
+    "language": "English"
+  },
+  "1305": {
+    "title": "The Ball at Sceaux",
+    "author": "Honoré de Balzac",
+    "release_date": "June 1, 2004",
+    "language": "English"
+  },
+  "1306": {
+    "title": "Seven Men [Excerpts]",
+    "author": "Sir Max Beerbohm",
+    "release_date": "May 1, 1998",
+    "language": "English"
+  },
+  "1307": {
+    "title": "The Magic Skin",
+    "author": "Honoré de Balzac",
+    "release_date": "February 12, 2005",
+    "language": "English"
+  },
+  "1308": {
+    "title": "A Florentine Tragedy; La Sainte Courtisane",
+    "author": "Oscar Wilde",
+    "release_date": "May 1, 1998",
+    "language": "English"
+  },
+  "1309": {
+    "title": "The Spirit of Place, and Other Essays",
+    "author": "Alice Meynell",
+    "release_date": "May 1, 1998",
+    "language": "English"
+  },
+  "1310": {
+    "title": "The Annals of the Parish",
+    "author": "John Galt",
+    "release_date": "May 1, 1998",
+    "language": "English"
+  },
+  "1342": {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "release_date": "June 1, 1998",
+    "language": "English"
+  },
+  "1432": {
+    "title": "Seraphita",
+    "author": "Honoré de Balzac",
+    "release_date": "September 7, 2005",
+    "language": "English"
+  },
+  "1433": {
+    "title": "The Red Inn",
+    "author": "Honoré de Balzac",
+    "release_date": "July 13, 2005",
+    "language": "English"
+  },
+  "1": {
+    "title": "The Declaration of Independence of the United States of America",
+    "author": "Thomas Jefferson",
+    "release_date": "December 1, 1971",
+    "language": "English"
+  },
+  "2": {
+    "title": "The United States Bill of Rights",
+    "author": "United States",
+    "release_date": "December 1, 1972",
+    "language": "English"
+  },
+  "3": {
+    "title": "John F. Kennedy's Inaugural Address",
+    "author": "John F. Kennedy",
+    "release_date": "November 1, 1973",
+    "language": "English"
+  },
+  "4": {
+    "title": "Lincoln's Gettysburg Address",
+    "author": "Abraham Lincoln",
+    "release_date": "November 1, 1973",
+    "language": "English"
+  },
+  "5": {
+    "title": "The United States Constitution",
+    "author": "United States",
+    "release_date": "December 1, 1975",
+    "language": "English"
+  },
+  "6": {
+    "title": "Give Me Liberty or Give Me Death",
+    "author": "Patrick Henry",
+    "release_date": "December 1, 1976",
+    "language": "English"
+  },
+  "7": {
+    "title": "The Mayflower Compact",
+    "author": null,
+    "release_date": "December 1, 1977",
+    "language": "English"
+  },
+  "8": {
+    "title": "Abraham Lincoln's Second Inaugural Address",
+    "author": "Abraham Lincoln",
+    "release_date": "December 1, 1978",
+    "language": "English"
+  },
+  "9": {
+    "title": "Abraham Lincoln's First Inaugural Address",
+    "author": "Abraham Lincoln",
+    "release_date": "December 1, 1979",
+    "language": "English"
+  },
+  "10": {
+    "title": "The King James Version of the Bible",
+    "author": null,
+    "release_date": "August 1, 1989",
+    "language": "English"
+  },
+  "1341": {
+    "title": "The Altruist in Politics",
+    "author": "Benjamin N. Cardozo",
+    "release_date": "June 1, 1998",
+    "language": "English"
+  },
+  "1324": {
+    "title": "Russia in 1919",
+    "author": "Arthur Ransome",
+    "release_date": "May 1, 1998",
+    "language": "English"
+  },
+  "1325": {
+    "title": "Twenty Years at Hull House; with Autobiographical Notes",
+    "author": "Jane Addams",
+    "release_date": "May 1, 1998",
+    "language": "English"
+  },
+  "1326": {
+    "title": "The Crisis in Russia",
+    "author": "Arthur Ransome",
+    "release_date": "May 1, 1998",
+    "language": "English"
+  },
+  "1327": {
+    "title": "Elizabeth and Her German Garden",
+    "author": "Elizabeth Von Arnim",
+    "release_date": "May 1, 1998",
+    "language": "English"
+  },
+  "11": {
+    "title": "Alice's Adventures in Wonderland",
+    "author": "Lewis Carroll",
+    "release_date": "June 27, 2008",
+    "language": "English"
+  },
+  "12": {
+    "title": "Through the Looking-Glass",
+    "author": "Lewis Carroll",
+    "release_date": "June 25, 2008",
+    "language": "English"
+  },
+  "13": {
+    "title": "The Hunting of the Snark: An Agony in Eight Fits",
+    "author": "Lewis Carroll",
+    "release_date": "June 25, 2008",
+    "language": "English"
+  },
+  "14": {
+    "title": "The 1990 CIA World Factbook",
+    "author": "United States. Central Intelligence Agency",
+    "release_date": "April 1, 1991",
+    "language": "English"
+  },
+  "15": {
+    "title": "Moby-Dick; or, The Whale",
+    "author": "Herman Melville",
+    "release_date": "May 1, 1991",
+    "language": "English"
+  },
+  "16": {
+    "title": "Peter Pan",
+    "author": "J. M. Barrie",
+    "release_date": "June 25, 2008",
+    "language": "English"
+  },
+  "17": {
+    "title": "The Book of Mormon",
+    "author": "Jr. Joseph Smith",
+    "release_date": "June 25, 2008",
+    "language": "English"
+  },
+  "18": {
+    "title": "The Federalist Papers",
+    "author": "Alexander Hamilton",
+    "release_date": "August 1, 1991",
+    "language": "English"
+  },
+  "19": {
+    "title": "The Song of Hiawatha",
+    "author": "Henry Wadsworth Longfellow",
+    "release_date": "June 1, 2004",
+    "language": "English"
+  },
+  "20": {
+    "title": "Paradise Lost",
+    "author": "John Milton",
+    "release_date": "October 1, 1991",
+    "language": "English"
+  },
+  "21": {
+    "title": "Three hundred Aesop’s fables",
+    "author": "Aesop",
+    "release_date": "June 25, 2008",
+    "language": "English"
+  },
+  "22": {
+    "title": "Roget's Thesaurus",
+    "author": "Peter Mark Roget",
+    "release_date": "December 1, 1991",
+    "language": "English"
+  },
+  "23": {
+    "title": "Narrative of the Life of Frederick Douglass, an American Slave",
+    "author": "Frederick Douglass",
+    "release_date": "January 12, 2006",
+    "language": "English"
+  },
+  "24": {
+    "title": "O Pioneers!",
+    "author": "Willa Cather",
+    "release_date": "June 27, 2008",
+    "language": "English"
+  },
+  "25": {
+    "title": "The 1991 CIA World Factbook",
+    "author": "United States. Central Intelligence Agency",
+    "release_date": "February 1, 1992",
+    "language": "English"
+  },
+  "26": {
+    "title": "Paradise Lost",
+    "author": "John Milton",
+    "release_date": "February 1, 1992",
+    "language": "English"
+  },
+  "27": {
+    "title": "Far from the Madding Crowd",
+    "author": "Thomas Hardy",
+    "release_date": "March 1, 1992",
+    "language": "English"
+  },
+  "28": {
+    "title": "The Fables of Aesop",
+    "author": "Aesop",
+    "release_date": "March 1, 1992",
+    "language": "English"
+  },
+  "29": {
+    "title": "The 1990 United States Census",
+    "author": "United States. Bureau of the Census",
+    "release_date": "April 1, 1992",
+    "language": "English"
+  },
+  "30": {
+    "title": "The Bible, King James Version, Complete",
+    "author": null,
+    "release_date": "April 1, 1992",
+    "language": "English"
+  },
+  "4483": {
+    "title": "The Amazing Marriage — Volume 1",
+    "author": "George Meredith",
+    "release_date": "September 1, 2003",
+    "language": "English"
+  },
+  "7748": {
+    "title": "The Parisians — Volume 12",
+    "author": "Baron Edward Bulwer Lytton Lytton",
+    "release_date": "March 1, 2005",
+    "language": "English"
+  },
+  "9546": {
+    "title": "Georgian Poetry 1916-1917",
+    "author": null,
+    "release_date": "December 1, 2005",
+    "language": "English"
+  },
+  "12593": {
+    "title": "The Atlantic Monthly, Volume 11, No. 65, March, 1863",
+    "author": "Various",
+    "release_date": "June 1, 2004",
+    "language": "English"
+  },
+  "20824": {
+    "title": "Bulletin de Lille, 1916.05",
+    "author": "Anonymous",
+    "release_date": "March 15, 2007",
+    "language": "French"
+  },
+  "21678": {
+    "title": "Tales of Giants from Brazil",
+    "author": "Elsie Spicer Eells",
+    "release_date": "June 4, 2007",
+    "language": "English"
+  },
+  "22160": {
+    "title": "Studien und Plaudereien. First Series",
+    "author": "Sigmon M. Stern",
+    "release_date": "July 27, 2007",
+    "language": "German"
+  },
+  "26866": {
+    "title": "Le monete dei possedimenti veneziani di oltremare e di terraferma descritte ed illustrate da Vincenzo Lazari",
+    "author": "Vincenzo Lazari",
+    "release_date": "October 10, 2008",
+    "language": "Italian"
+  },
+  "28313": {
+    "title": "Harper's Young People, January 20, 1880",
+    "author": "Various",
+    "release_date": "March 11, 2009",
+    "language": "English"
+  },
+  "35342": {
+    "title": "The Romance of a Poor Young Man",
+    "author": "Pierrepont Edwards",
+    "release_date": "February 21, 2011",
+    "language": "English"
+  },
+  "36130": {
+    "title": "The Campfire Girls on Station Island; Or, The Wireless from the Steam Yacht",
+    "author": "Margaret Penrose",
+    "release_date": "May 16, 2011",
+    "language": "English"
+  },
+  "37209": {
+    "title": "The Turner Twins",
+    "author": "Ralph Henry Barbour",
+    "release_date": "August 26, 2011",
+    "language": "English"
+  },
+  "38142": {
+    "title": "The Seven Cardinal Sins: Envy and Indolence",
+    "author": "Eugène Sue",
+    "release_date": "November 26, 2011",
+    "language": "English"
+  },
+  "42486": {
+    "title": "The Two Magics: The Turn of the Screw, Covering End",
+    "author": "Henry James",
+    "release_date": "April 9, 2013",
+    "language": "English"
+  },
+  "44352": {
+    "title": "The Shadow Passes",
+    "author": "Roy J. Snell",
+    "release_date": "December 5, 2013",
+    "language": "English"
+  },
+  "45304": {
+    "title": "The City of God, Volume I",
+    "author": "Bishop of Hippo Saint Augustine",
+    "release_date": "April 8, 2014",
+    "language": "English"
+  },
+  "45946": {
+    "title": "A-B-C of Gardening",
+    "author": "Eben E. Rexford",
+    "release_date": "June 12, 2014",
+    "language": "English"
+  },
+  "46332": {
+    "title": "Merrie England in the Olden Time, Vol. 2",
+    "author": "George Daniel",
+    "release_date": "July 19, 2014",
+    "language": "English"
+  },
+  "48539": {
+    "title": "A system of pyrotechny",
+    "author": "James Cutbush",
+    "release_date": "March 21, 2015",
+    "language": "English"
+  },
+  "49214": {
+    "title": "Sir Isaac Brock",
+    "author": "Hugh S. Eayrs",
+    "release_date": "June 14, 2015",
+    "language": "English"
+  },
+  "50555": {
+    "title": "Bibliographic Notes on One Hundred Books Famous in English Literature",
+    "author": "Henry Watson Kent",
+    "release_date": "November 26, 2015",
+    "language": "English"
+  },
+  "52141": {
+    "title": "Under the White Ensign: A Naval Story of the Great War",
+    "author": "Percy F. Westerman",
+    "release_date": "May 23, 2016",
+    "language": "English"
+  },
+  "52227": {
+    "title": "Piece Goods Manual",
+    "author": "A. E. Blanco",
+    "release_date": "June 3, 2016",
+    "language": "English"
+  },
+  "53271": {
+    "title": "The Brighton Boys at Chateau-Thierry",
+    "author": "James R. Driscoll",
+    "release_date": "October 14, 2016",
+    "language": "English"
+  },
+  "57953": {
+    "title": "Inaugural Presidential Address",
+    "author": "Donald Trump",
+    "release_date": "September 22, 2018",
+    "language": "English"
+  },
+  "62238": {
+    "title": "The Fashionable World Displayed",
+    "author": "John Owen",
+    "release_date": "May 26, 2020",
+    "language": "English"
+  },
+  "64514": {
+    "title": "Goya, an account of his life and works",
+    "author": "Albert Frederick Calvert",
+    "release_date": "February 10, 2021",
+    "language": "English"
+  },
+  "65737": {
+    "title": "\"Light Ho, Sir!\"",
+    "author": "Frank Thomas Bullen",
+    "release_date": "June 30, 2021",
+    "language": "English"
+  }
+}
