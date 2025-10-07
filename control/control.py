@@ -1,39 +1,81 @@
+import time
+import sys
+import os
+import json
 from pathlib import Path
-import random
+
+from inverted_index.metadata_store import run as store_catalog
+from crawler.cli import main as crawler_main
+from inverted_index import metadata_parser
+from inverted_index.datamart_initializer_sqlite import init_datamart
+from inverted_index.indexer import build_inverted_index
+
 
 class Control:
-    def __init__(self, control_dir="control", total_books=70000):
-        self.dir = Path(control_dir)
-        self.dir.mkdir(parents=True, exist_ok=True)
-        self.downloaded_file = self.dir / "downloaded_books.txt"
-        self.indexed_file = self.dir / "indexed_books.txt"
-        self.total_books = total_books
+    def __init__(
+        self,
+        datalake="datalake",
+        catalog="metadata/catalog.json",
+        progress_parser="metadata/progress_parser.json",
+        db="datamart/datamart.db",
+        index_output="index/inverted_index.json",
+        progress_indexer="indexer/progress.json",
+        progress_crawler="crawler/progress.json",
+        batch_size=10,
+        sleep_seconds=120,
+    ):
+        self.datalake = datalake
+        self.catalog = catalog
+        self.progress_parser = progress_parser
+        self.db = db
+        self.index_output = index_output
+        self.progress_indexer = progress_indexer
+        self.progress_crawler = progress_crawler
+        self.batch_size = batch_size
+        self.sleep_seconds = sleep_seconds
 
-    def _read_ids(self, file_path):
-        if file_path.exists():
-            return set(file_path.read_text(encoding="utf-8").splitlines())
-        return set()
+    def load_crawler_progress(self):
+        if os.path.exists(self.progress_crawler):
+            with open(self.progress_crawler, "r", encoding="utf-8") as f:
+                return json.load(f).get("last_id", 0)
+        return 0
 
-    def _append_id(self, file_path, book_id):
-        with file_path.open("a", encoding="utf-8") as f:
-            f.write(f"{book_id}\n")
+    def save_crawler_progress(self, last_id: int):
+        progress_file = Path(self.progress_crawler)
+        progress_file.parent.mkdir(parents=True, exist_ok=True)
+        with open(progress_file, "w", encoding="utf-8") as f:
+            json.dump({"last_id": last_id}, f, indent=2)
 
-    def step(self, downloader, indexer):
-        downloaded = self._read_ids(self.downloaded_file)
-        indexed = self._read_ids(self.indexed_file)
-        pending = downloaded - indexed
+    def run(self):
+        print("[Initializing datamart...]")
+        init_datamart(self.db)
 
-        if pending:
-            book_id = pending.pop()
-            indexer(book_id)
-            self._append_id(self.indexed_file, book_id)
-            return f"Indexed book {book_id}"
+        while True:
+            print("\n[Cycle] Starting new processing cycle...\n")
 
-        for _ in range(10):
-            book_id = str(random.randint(1, self.total_books))
-            if book_id not in downloaded:
-                downloader(book_id)
-                self._append_id(self.downloaded_file, book_id)
-                return f"Downloaded book {book_id}"
+            print("[1/3] Running crawler (batch of 10 books)...")
+            last_id = self.load_crawler_progress()
+            start_id = last_id + 1
+            end_id = start_id + self.batch_size - 1
+            sys.argv = ["crawler.py", "--range", str(start_id), str(end_id)]
+            crawler_main()
+            self.save_crawler_progress(end_id)
 
-        return "Idle: no new book found"
+            print("[2/3] Running indexer...")
+            build_inverted_index(
+                datalake_path=self.datalake,
+                output_path=self.index_output,
+                progress_path=self.progress_indexer
+            )
+
+            print("[3/3] Running metadata parser...")
+            metadata_parser.build_metadata_catalog(
+                datalake_path=self.datalake,
+                output_path=self.catalog,
+                progress_path=self.progress_parser,
+            )
+            affected = store_catalog(self.catalog, self.db)
+            print(f"Stored ~{affected} rows in 'books'.")
+
+            print(f"Cycle completed. Sleeping {self.sleep_seconds // 60} minutes...\n")
+            time.sleep(self.sleep_seconds)
